@@ -6,8 +6,8 @@ const IndividualUser = () => {
 
   const userBlogList = useSelector((state) => state.userList);
   const usr = userBlogList.find((user) => user.id === id);
-  if(!usr) {
-    return null
+  if (!usr) {
+    return null;
   }
   return (
     <>

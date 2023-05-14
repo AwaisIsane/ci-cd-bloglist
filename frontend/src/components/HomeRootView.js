@@ -19,8 +19,10 @@ const HomeRootView = () => {
       <Togglable buttonLabel="addBlog" ref={blogFormRef}>
         <AddBlog toggleFrm={blogFormRef} />
       </Togglable>
-      {blogs.map((blog) => (<div key={blog.id} className="blog">
-        <Link  to={`/blogs/${blog.id}`} >{blog.title}</Link></div>
+      {blogs.map((blog) => (
+        <div key={blog.id} className="blog">
+          <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
+        </div>
       ))}
     </>
   );

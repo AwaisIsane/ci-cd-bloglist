@@ -7,28 +7,38 @@ import Notification from "./Notification";
 const Header = () => {
   const user = useSelector((state) => state.user.username);
   const dispatch = useDispatch();
-  const navigate =useNavigate()
-  
+  const navigate = useNavigate();
+
   const logoutUser = () => {
     dispatch(logout());
-    navigate('/login')
+    navigate("/login");
   };
 
   return (
     <>
-    <AppBar position="static">
-    <Toolbar>
-      <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-        BlogList App - {user}
-      </Typography>
-      <Button color="inherit"><Link to={'/users'} ><span className="navLink"> Users</span></Link></Button>
-      <Button color="inherit"><Link to={'/'}><span className="navLink">Blogs</span></Link></Button>
-      <Button color="inherit" onClick={logoutUser}>Logout</Button>
-    </Toolbar>
-  </AppBar>
-  <Notification />
-  </>
-  )
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            BlogList App - {user}
+          </Typography>
+          <Button color="inherit">
+            <Link to={"/users"}>
+              <span className="navLink"> Users</span>
+            </Link>
+          </Button>
+          <Button color="inherit">
+            <Link to={"/"}>
+              <span className="navLink">Blogs</span>
+            </Link>
+          </Button>
+          <Button color="inherit" onClick={logoutUser}>
+            Logout
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <Notification />
+    </>
+  );
   // return (
   //   <><nav>
   //       <li><Link to={'/users'}>Users</Link></li>

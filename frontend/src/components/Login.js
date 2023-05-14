@@ -1,7 +1,7 @@
 import { Button, Container, TextField } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { setNotification } from "../reducers/notificationReducer";
 import { login } from "../reducers/userReducer";
 import Notification from "./Notification";
@@ -11,19 +11,19 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
-  const navigate = useNavigate()
-  const handleLogin =  (event) => {
+  const navigate = useNavigate();
+  const handleLogin = (event) => {
     event.preventDefault();
     dispatch(login({ username, password }))
-    .then(()=>navigate('/'))
-    .catch((exception) => {
-      dispatch(
-        setNotification({
-          message: exception.response.data.error,
-          class: "error",
-        })
-      );
-    });
+      .then(() => navigate("/"))
+      .catch((exception) => {
+        dispatch(
+          setNotification({
+            message: exception.response.data.error,
+            class: "error",
+          })
+        );
+      });
   };
 
   return (
@@ -50,7 +50,9 @@ const Login = () => {
             onChange={({ target }) => setPassword(target.value)}
           />
         </div>
-        <Button variant="contained" type="submit">login</Button>
+        <Button variant="contained" type="submit">
+          login
+        </Button>
       </form>
     </Container>
   );

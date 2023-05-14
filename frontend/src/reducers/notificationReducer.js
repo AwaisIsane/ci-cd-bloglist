@@ -9,11 +9,11 @@ const notificationSlice = createSlice({
   initialState,
   reducers: {
     setNotificationS(state, action) {
-      return {...action.payload};
+      return { ...action.payload };
     },
     // eslint-disable-next-line no-unused-vars
     clearNotification(state, action) {
-      return {...initialState};
+      return { ...initialState };
     },
   },
 });
@@ -28,7 +28,7 @@ let timeoutId = null;
 //        dispatch(clearNotification())
 //     }
 //   }
-export const setNotification = (notifStr,time=5) => {
+export const setNotification = (notifStr, time = 5) => {
   return async (dispatch) => {
     clearTimeout(timeoutId);
     dispatch(setNotificationS(notifStr));

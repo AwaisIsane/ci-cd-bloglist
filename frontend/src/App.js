@@ -25,9 +25,9 @@ const App = () => {
           element: <IndividualUser />,
         },
         {
-          path:"/blogs/:id",
-          element:<Blog/>
-        }
+          path: "/blogs/:id",
+          element: <Blog />,
+        },
       ],
     },
     {
@@ -36,7 +36,11 @@ const App = () => {
     },
   ]);
 
-  return (<Container><RouterProvider router={router} /></Container>);
+  return (
+    <Container>
+      <RouterProvider router={router} />
+    </Container>
+  );
 };
 
 export default App;

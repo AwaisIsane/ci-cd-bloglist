@@ -29,7 +29,7 @@ describe("Blog App", function () {
       cy.get("input:last").type("salainn");
       cy.get("[type='submit']").contains("login").click();
       cy.contains("youre logged in as mluukkai").should("not.exist");
-      cy.contains("invalid username or password")
+      cy.contains("invalid username or password");
     });
   });
 

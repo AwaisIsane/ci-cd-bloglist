@@ -72,7 +72,9 @@ const AddBlog = ({ toggleFrm }) => {
             }
           />
         </div>
-        <Button variant="contained" type="submit">create</Button>
+        <Button variant="contained" type="submit">
+          create
+        </Button>
       </form>
     </div>
   );
