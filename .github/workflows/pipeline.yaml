@@ -15,9 +15,9 @@ jobs:
         with:
           node-version: "16"
       - name: Install dependencies and build
-        run: build_step.sh
+        run: ./build_step.sh
       - name: Check style
-        run: style_check.sh
+        run: ./style_check.sh
       - name: Deploy to Render
         if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message,' '), '#skip') }}
         run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
