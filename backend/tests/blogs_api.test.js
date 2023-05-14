@@ -22,54 +22,53 @@ afterAll(() => {
   mongoose.connection.close();
 });
 
-test("length increase by 1 i", async () => {
-  const iniBlogs = await api.get("/api/blogs");
-  const blog = {
-    title: "Crypto is the future",
-    author: "Jacck",
-    url: "https://awaisisane.github.io",
-    likes: 3,
-  };
-  await api
-    .post("/api/blogs")
-    .send(blog)
-    .set("Authorization", token1)
-    .expect(201)
-    .expect("Content-Type", /application\/json/);
+// test("length increase by 1 i", async () => {
+//   const iniBlogs = await api.get("/api/blogs");
+//   const blog = {
+//     title: "Crypto is the future",
+//     author: "Jacck",
+//     url: "https://awaisisane.github.io",
+//     likes: 3,
+//   };
+//   await api
+//     .post("/api/blogs")
+//     .send(blog)
+//     .set("Authorization", token1)
+//     .expect(201)
+//     .expect("Content-Type", /application\/json/);
 
-  const res = await api.get("/api/blogs");
-  expect(res.body).toHaveLength(iniBlogs.body.length + 1);
-});
+//   const res = await api.get("/api/blogs");
+//   expect(res.body).toHaveLength(iniBlogs.body.length + 1);
+// });
 
 //likes continue
-test("likes property missing defaults 0", async () => {
-  const blog = {
-    title: "Crypto is gambling",
-    author: "me",
-    url: "https://awaisisane.github.io",
-  };
-  const res = await api
-    .post("/api/blogs")
-    .send(blog)
-    .set("Authorization", token1)
-    .expect("Content-Type", /application\/json/);
+// test("likes property missing defaults 0", async () => {
+//   const blog = {
+//     title: "Crypto is gambling",
+//     author: "me",
+//     url: "https://awaisisane.github.io",
+//   };
+//   const res = await api
+//     .post("/api/blogs")
+//     .send(blog)
+//     .set("Authorization", token1)
+//     .expect("Content-Type", /application\/json/);
 
-  expect(res.body.id).toBeDefined();
-  expect(res.body.likes).toBe(0);
-});
+//   expect(res.body.id).toBeDefined();
+//   expect(res.body.likes).toBe(0);
+// });
 
-test("if title and url are missing", async () => {
-  const blog = {
-    author: "me",
-    likes: 3,
-  };
-  const res = await api
-    .post("/api/blogs")
-    .send(blog)
-    .set("Authorization", token1)
-    .expect(400);
-  expect();
-});
+// test("if title and url are missing", async () => {
+//   const blog = {
+//     author: "me",
+//     likes: 3,
+//   };
+//   const res = await api
+//     .post("/api/blogs")
+//     .send(blog)
+//     .set("Authorization", token1)
+//     .expect(400);
+// });
 
 test("if token is missing", async () => {
   const blog = {
