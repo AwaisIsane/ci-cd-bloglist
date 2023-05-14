@@ -37,4 +37,7 @@ if (process.env.NODE_ENV === "test") {
 app.use("/api/blogs", middleware.userExtractor, blogsRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/login", loginRouter);
+app.get("/health", (req, res) => {
+  res.send("ok");
+});
 module.exports = app;
