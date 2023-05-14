@@ -36,9 +36,6 @@
     "supertest": "^6.1.3"
   },
   "jest": {
-    "testEnvironment": "node",
-    "testPathIgnorePatterns": [
-      "<rootDir>/client/"
-    ]
+    "testEnvironment": "node"
   }
 }
